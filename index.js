@@ -38,13 +38,16 @@ app.post('/getcity',(req,res)=>{
     })
 })
 
-exports.get = function(event, context, callback) {
-  var contents = fs.readFileSync(`public${path.sep}index.html`);
-  var result = {
-    statusCode: 200,
-    body: contents.toString(),
-    headers: {'content-type': 'text/html'}
-  };
-  app()
-};
+// exports.get = function(event, context, callback) {
+//   var contents = fs.readFileSync(`public${path.sep}index.html`);
+//   var result = {
+//     statusCode: 200,
+//     body: contents.toString(),
+//     headers: {'content-type': 'text/html'}
+//   };
+//   app()
+// };
+
+
+module.exports = app
 
