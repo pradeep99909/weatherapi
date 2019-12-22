@@ -58,6 +58,6 @@ exports.get = function(event, context, callback) {
     body: contents.toString(),
     headers: {'content-type': 'text/html'}
   };
-
+  app()
 };
 
