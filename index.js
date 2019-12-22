@@ -1,4 +1,3 @@
-
 var fs = require('fs');
 var path = require('path');
 var express = require('express')
@@ -10,17 +9,6 @@ app.use( bodyParser.json() );
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname,'public')))
 
-// app.get('/',(req,res)=>{
-//     res.sendFile('index.html')
-// })
-
-app.post('/login',(req,res)=>{
-    res.send(add(req.body.a,req.body.b))
-})
-
-app.get('/weather',(req,res)=>{
-    res.sendFile('weather.html')
-})
 
 app.post('/getweather',(req,res)=>{
     //res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
