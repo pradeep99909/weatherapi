@@ -10,7 +10,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname,'public')))
 
 
-app.post('/getweather',(req,res)=>{
+exports.get = function(event, context, callback) {
+  var contents = fs.readFileSync(`public${path.sep}index.html`);
+  var result = {
+    statusCode: 200,
+    body: contents.toString(),
+    headers: {'content-type': 'text/html'}
+  };
+  
+  app.post('/getweather',(req,res)=>{
     //res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
     request(`https://api.openweathermap.org/data/2.5/weather?q=${req.body.city}&appid=${key}`,function(err, response, body){
         if(err){
@@ -38,16 +46,6 @@ app.post('/getcity',(req,res)=>{
     })
 })
 
-// exports.get = function(event, context, callback) {
-//   var contents = fs.readFileSync(`public${path.sep}index.html`);
-//   var result = {
-//     statusCode: 200,
-//     body: contents.toString(),
-//     headers: {'content-type': 'text/html'}
-//   };
-//   app()
-// };
 
-
-module.exports = app
+};
 
