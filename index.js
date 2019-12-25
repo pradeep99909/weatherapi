@@ -44,7 +44,7 @@ exports.get = function(event, context, callback) {
     var result = {
         headers: {
             'Access-Control-Allow-Headers': '*',
-            'Access-Control-Allow-Methods': 'OPTIONS,POST',
+            'Access-Control-Allow-Origin': '*',
           },
       statusCode: 200,
       body: contents.toString(),
