@@ -39,13 +39,17 @@ app.post('/getcity',(req,res)=>{
 })
 
 
-exports.get = function(event, context, app) {
+exports.get = function(event, context, callback) {
     var contents = fs.readFileSync(`public${path.sep}index.html`);
     var result = {
+        headers: {
+            'Access-Control-Allow-Headers': '*',
+            'Access-Control-Allow-Methods': 'OPTIONS,POST',
+          },
       statusCode: 200,
       body: contents.toString(),
       headers: {'content-type': 'text/html'}
     };
   
-    app()
+    callback(app, result);
   };
