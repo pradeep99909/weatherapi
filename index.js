@@ -39,7 +39,7 @@ app.post('/getcity',(req,res)=>{
 })
 
 
-exports.get = function(event, context, callback) {
+exports.get = function(event, context, app) {
     var contents = fs.readFileSync(`public${path.sep}index.html`);
     var result = {
       statusCode: 200,
@@ -47,5 +47,5 @@ exports.get = function(event, context, callback) {
       headers: {'content-type': 'text/html'}
     };
   
-    callback(null, result);
+    app()
   };
